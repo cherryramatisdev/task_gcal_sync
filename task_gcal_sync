@@ -14,16 +14,16 @@ try:
     os.mkdir(folder)
 except OSError:
     pass
-client_id = os.path.join(folder, 'client_id.json')
+client_secret = os.path.join(folder, 'client_secret.json')
 credentials = os.path.join(folder, 'credentials.json')
 calendar_id = open(os.path.join(folder, 'calendar_id')).read().strip()
 
 
 def init():
-    if not os.path.exists(client_id):
-        print('Please put client_id.json in {} before proceeding. Follow '
+    if not os.path.exists(client_secret):
+        print('Please put client_secret.json in {} before proceeding. Follow '
               ' https://developers.google.com/calendar/quickstart/python '
-              ' to get client_id.json'.format(client_id))
+              ' to download client_secret.json'.format(client_secret))
         return
     print('Please paste the calendar id you want to use: ', end='')
     calendar_id_s = str(input()).strip()
@@ -145,7 +145,7 @@ def _get_service():
     store = file.Storage(credentials)
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets(client_id, SCOPES)
+        flow = client.flow_from_clientsecrets(client_secret, SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('calendar', 'v3', http=creds.authorize(Http()))
     return service
