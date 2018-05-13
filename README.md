@@ -11,8 +11,9 @@ tasks from and to google calendar.
 
 First, you will need to obtain authorization to use your google calendar.
 To do that, please follow https://developers.google.com/calendar/quickstart/python.
-In principle, now you should have downloaded a file called client_id.json.
-You need to create a folder in ~/.task_gcal_sync and put client_id.json there.
+In principle, now you should have downloaded a file called client_secret.json.
+You need to create a folder in ~/.task_gcal_sync and put client_secret.json there
+and rename it client_id.json.
 
 Then, you can type:
 
