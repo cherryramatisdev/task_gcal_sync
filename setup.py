@@ -26,5 +26,5 @@ setup(
                  'Operating System :: MacOS'],
     platforms='any',
     scripts=['task_gcal_sync'],
-    install_requires=['google-api-python-client', 'taskw'],
+    install_requires=['google-api-python-client', 'taskw', 'tzlocal'],
 )
